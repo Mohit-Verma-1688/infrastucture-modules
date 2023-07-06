@@ -9,3 +9,4 @@ resource "helm_release" "argocd" {
   version    = var.argocd_helm_verion
   create_namespace = true
   timeout          = "1200"
+}
