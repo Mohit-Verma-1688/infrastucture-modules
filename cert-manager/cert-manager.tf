@@ -64,7 +64,7 @@ resource "helm_release" "cert-manager" {
 
   name = "cert-manager"
 
-  repository = "jetstack https://charts.jetstack.io"
+  repository = "https://charts.jetstack.io"
   chart      = "cert-manager"
   namespace  = "kube-system"
   version    = var.cert-manager_helm_verion
