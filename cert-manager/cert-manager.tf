@@ -81,7 +81,7 @@ resource "helm_release" "cert-manager" {
 
   set {
     name  = "extraArgs"
-    value = "--issuer-ambient-credentials"
+    value = "- --issuer-ambient-credentials"
   }
 
 
