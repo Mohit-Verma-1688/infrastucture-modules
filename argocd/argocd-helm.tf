@@ -26,6 +26,10 @@ resource "helm_release" "argocd" {
     value = "service.beta.kubernetes.io/aws-load-balancer.scheme: internet-facing"
 
   }
+  set {
+    name  = "server.service.annotations[2]"
+    value = "service.beta.kubernetes.io/aws-load-balancer-type: nlb"
 
+  }
 
 }
