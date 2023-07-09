@@ -22,4 +22,5 @@ variable "cert-manager_helm_verion" {
 variable "openid_provider_arn" {
   description = "IAM Openid Connect Provider ARN"
   type        = string
+  default     = arn:aws:iam::123456789012:oidc-provider
 }
