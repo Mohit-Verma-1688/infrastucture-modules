@@ -10,4 +10,22 @@ resource "helm_release" "argocd" {
   create_namespace = true
   timeout          = "1200"
   force_update	   = true
+
+  set {
+    name  = "server.service.type"
+    value = "LoadBalancer"
+  }
+
+  set {
+    name  = "server.service.annotations"
+    value = "service.beta.kubernetes.io/aws-load-balancer-type: external"
+ 
+  }
+  set {
+    name  = "server.service.annotations"
+    value = "service.beta.kubernetes.io/aws-load-balancer.scheme: internet-facing"
+
+  }
+
+
 }
