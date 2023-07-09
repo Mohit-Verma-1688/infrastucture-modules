@@ -22,7 +22,7 @@ data "aws_iam_policy_document" "cert-manager" {
 
 resource "aws_iam_role" "cert-manager" {
   count = var.enable_cert-manager ? 1 : 0
-
+  openid_provider_arn = var.openid_provider_arn
   assume_role_policy = data.aws_iam_policy_document.cert-manager.json
   name               = "${var.eks_name}-cert-manager"
 }
