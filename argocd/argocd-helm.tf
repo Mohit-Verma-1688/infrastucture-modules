@@ -17,12 +17,12 @@ resource "helm_release" "argocd" {
   }
 
   set {
-    name  = "server.service.annotations"
+    name  = "server.service.annotations[0]"
     value = "service.beta.kubernetes.io/aws-load-balancer-type: external"
  
   }
   set {
-    name  = "server.service.annotations"
+    name  = "server.service.annotations[1]"
     value = "service.beta.kubernetes.io/aws-load-balancer.scheme: internet-facing"
 
   }
