@@ -9,3 +9,4 @@ terraform {
       source  = "gavinbunney/kubectl"
   }
 }
+}

@@ -26,7 +26,7 @@ resource "kubectl_manifest" "Issuer" {
     }
   }
 }
- }
+}
 
 
 resource "kubectl_manifest" "ingress_argocd" {
@@ -75,6 +75,4 @@ resource "kubectl_manifest" "ingress_argocd" {
     ]
   }
 }
-
-
 }
