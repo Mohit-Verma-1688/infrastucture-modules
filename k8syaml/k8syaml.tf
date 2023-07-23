@@ -1,4 +1,4 @@
-data "aws_eks_cluster1" "eks" {
+data "aws_eks_cluster" "eks1" {
     name = var.eks_name
 
 }
