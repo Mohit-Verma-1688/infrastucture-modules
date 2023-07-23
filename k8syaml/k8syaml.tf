@@ -1,3 +1,8 @@
+data "aws_eks_cluster" "eks" {
+    name = var.eks_name
+
+}
+
 resource "kubectl_manifest" "Issuer" {
 yaml_body = <<-EOF
 apiVersion: cert-manager.io/v1
