@@ -7,5 +7,5 @@ output "openid_provider_arn" {
 }
 
 output "eks_id" {
-  value = aws_eks_cluster.this.id
+  value = aws_eks_cluster.this[0].id
 }
