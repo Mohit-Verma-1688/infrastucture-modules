@@ -49,7 +49,7 @@ resource "kubernetes_secret" "ssh_key" {
   data = {
     "sshPrivateKey" = data.aws_ssm_parameter.ssh_private_key.value
     "type"          = "git"
-    "url"           = "var.private_git_repo"
+    "url"           = "git@github.com:Mohit-Verma-1688/applications.git"   #var cannot be parametised
     "name"          = "applications"
     "project"       = "*"
   }
