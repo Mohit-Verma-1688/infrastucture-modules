@@ -32,12 +32,12 @@ resource "helm_release" "argocd" {
 }
 
 data "aws_ssm_parameter" "ssh_private_key" {
-  name = "var.aws_ssm_key_name"
+  name = var.aws_ssm_key_name
 }
 
 resource "kubernetes_secret" "ssh_key" {
   metadata {
-    name      = "var.env-private-repo"
+    name      = var.env-private-repo
     namespace = "argocd" 
     labels = {
       "argocd.argoproj.io/secret-type" = "repository"
