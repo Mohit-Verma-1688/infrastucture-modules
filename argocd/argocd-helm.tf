@@ -30,3 +30,27 @@ resource "helm_release" "argocd" {
 #  }
 
 }
+
+data "aws_ssm_parameter" "ssh_private_key" {
+  name = "argocd-terraform-key"
+}
+
+resource "kubernetes_secret" "ssh_key" {
+  metadata {
+    name      = "private-repo"
+    namespace = "argocd" 
+    labels = {
+      "argocd.argoproj.io/secret-type" = "repository"
+    }
+  }
+
+  type = "Opaque"
+
+  data = {
+    "sshPrivateKey" = data.aws_ssm_parameter.ssh_private_key.value
+    "type"          = "git"
+    "url"           = "git@github.com:Mohit-Verma-1688/applications.git"
+    "name"          = "applications"
+    "project"       = "*"
+  }
+}
