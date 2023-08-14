@@ -13,7 +13,7 @@ resource "helm_release" "kube-prometheus-stack" {
   force_update	   = true
 
   values = [
-    file("${path.module}/kube-prometheus-stack.yaml")
+    templatefile("${path.module}/kube-prometheus-stack.yaml", { env = "${var.env}" })
   ]
 
 }
