@@ -3,7 +3,7 @@
 controller:
   ingressClassResource:
     # -- Name of the ingressClass
-    name: external-nginx
+    name: ${env}-external-nginx
   admissionWebhooks:
     enabled: false
   service:
@@ -12,4 +12,4 @@ controller:
 #Required for ACME
   watchIngressWithoutClass: true
   extraArgs:
-   ingress-class: external-nginx
+   ingress-class: ${env}-external-nginx

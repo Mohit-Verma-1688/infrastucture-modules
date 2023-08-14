@@ -1,7 +1,7 @@
 resource "helm_release" "ingress-nginx" {
   count = var.enable_ingress-controller ? 1 : 0
 
-  name = "ingress-nginx"
+  name = "${var.env}-ingress-nginx"
 
   repository = "https://kubernetes.github.io/ingress-nginx"
   chart      = "ingress-nginx"
@@ -12,7 +12,7 @@ resource "helm_release" "ingress-nginx" {
   force_update	   = true
 
   values = [
-    file("${path.module}/nginx-values.yaml")
+    templatefile("${path.module}/nginx-values.yaml", { env = "${var.env}" })
   ]
 
 #  set {
