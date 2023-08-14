@@ -4,7 +4,7 @@ resource "helm_release" "cert-manager-issuers" {
 
   name = "${var.env}-cert-manager-issuers"
 
-  repository = "adfinis https://charts.adfinis.com"
+  repository = "https://charts.adfinis.com"
   chart      = "cert-manager-issuers"
   namespace  = "cert-manager"
   version    = var.cert-manager-issuers_helm_version
