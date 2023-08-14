@@ -14,11 +14,10 @@ resource "helm_release" "argocd" {
   create_namespace = true
   timeout          = "1200"
   force_update	   = true
-
-  set {
-    name  = "server.service.type"
-    value = "NodePort"
-  }
+ 
+  values = [
+    file("${path.module}/argocd.yaml")
+  ]
 
 #  set {
 #    name  = "server.service.annotations[0]"
@@ -35,26 +34,3 @@ resource "helm_release" "argocd" {
 
 }
 
-#data "aws_ssm_parameter" "ssh_private_key" {
-#  name = var.aws_ssm_key_name
-#}
-
-#resource "kubernetes_secret" "ssh_key" {
-#  metadata {
-#    name      = "private-repo"
-#    namespace = "argocd" 
-#    labels = {
-#      "argocd.argoproj.io/secret-type" = "repository"
-#    }
-#  }
-#
-#  type = "Opaque"
-#
-#  data = {
-#    "sshPrivateKey" = data.aws_ssm_parameter.ssh_private_key.value
-#    "type"          = "git"
-#    "url"           = "git@github.com:Mohit-Verma-1688/applications.git"   #var cannot be parametised
-#    "name"          = "applications"
-#    "project"       = "*"
-#  }
-#}

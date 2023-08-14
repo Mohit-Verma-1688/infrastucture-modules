@@ -6,10 +6,6 @@ terraform {
       source  = "hashicorp/helm"
       version = "~> 2.9"
     }
-    kubectl = {
-      source  = "gavinbunney/kubectl"
-      version = ">= 1.14"
-   }
     aws = {
       source  = "hashicorp/aws"
       version = "~> 5.7.0"
