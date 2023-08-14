@@ -920,7 +920,7 @@ grafana:
     ## Secret must be manually created in the namespace
     ##
     tls:
-    - secretName: ${env}grafana-general-tls
+    - secretName: ${env}-grafana-general-tls
       hosts:
       - ${env}-grafana.themulticlouding.com
 
