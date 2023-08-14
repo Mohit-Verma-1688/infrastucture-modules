@@ -1852,19 +1852,19 @@ server:
     # -- Additional ingress annotations
     annotations:
       nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-      cert-manager.io/cluster-issuer: letsencrypt-dev
+      cert-manager.io/cluster-issuer: letsencrypt-${env}
       nginx.ingress.kubernetes.io/ssl-passthrough: 'true'
     # -- Additional ingress labels
     labels: {}
     # -- Defines which ingress controller will implement the resource
-    ingressClassName: dev-external-nginx
+    ingressClassName: ${env}-external-nginx
 
     # -- List of ingress hosts
     ## Argo Ingress.
     ## Hostnames must be provided if Ingress is enabled.
     ## Secrets must be manually created in the namespace
     hosts:
-    - dev-argocd.multiclouding.com
+    - ${env}-argocd.themulticlouding.com
 
     # -- List of ingress paths
     paths:
@@ -1885,7 +1885,7 @@ server:
     tls:
     - secretName: "argocd-secret"
       hosts:
-      - "dev-argocd.multiclouding.com"
+      - "${env}-argocd.themulticlouding.com"
 
     # -- Uses `server.service.servicePortHttps` instead `server.service.servicePortHttp`
     https: true

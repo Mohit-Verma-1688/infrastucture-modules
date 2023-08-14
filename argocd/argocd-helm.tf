@@ -16,7 +16,7 @@ resource "helm_release" "argocd" {
   force_update	   = true
  
   values = [
-    file("${path.module}/argocd.yaml")
+    templatefile("${path.module}/argocd.yaml", { env = "${var.env}" })
   ]
 
 #  set {
