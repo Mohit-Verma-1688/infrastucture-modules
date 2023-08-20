@@ -62,7 +62,7 @@ resource "aws_iam_role_policy_attachment" "cert-manager" {
 resource "helm_release" "cert-manager" {
   count = var.enable_cert-manager ? 1 : 0
 
-  name = "cert-manager"
+  name = "${var.env}-cert-manager"
 
   repository = "https://charts.jetstack.io"
   chart      = "cert-manager"
