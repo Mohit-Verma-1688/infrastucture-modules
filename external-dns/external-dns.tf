@@ -67,7 +67,7 @@ resource "aws_iam_role_policy_attachment" "external-dns" {
 resource "helm_release" "external-dns" {
   count = var.enable_external-dns ? 1 : 0
 
-  name = "external-dns"
+  name = "${var.env}-external-dns"
 
   repository = "https://charts.bitnami.com/bitnami"
   chart      = "external-dns"
