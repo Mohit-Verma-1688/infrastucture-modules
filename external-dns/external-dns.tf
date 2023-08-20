@@ -81,8 +81,38 @@ resource "helm_release" "external-dns" {
   }
 
   set {
-    name  = "extraArgs"
-    value = "{"--source=service","--source=ingress","--provider=aws","--policy=upsert-only","--aws-zone-type=public","--registry=txt","--registry=txt","--txt-owner-id=eks-identifier"}"
+    name  = "extraArgs.source"
+    value = "service"
+  }
+
+  set {
+    name  = "extraArgs.source"
+    value = "ingress"
+  }
+
+  set {
+    name  = "extraArgs.provider"
+    value = "aws"
+  }
+
+  set {
+    name  = "extraArgs.policy"
+    value = "upsert-only"
+  }
+  
+  set {
+    name  = "extraArgs.aws-zone-type"
+    value = "public"
+  }
+
+  set {
+    name  = "extraArgs.registry"
+    value = "txt"
+  } 
+ 
+  set {
+    name  = "extraArgs.txt-owner-id"
+    value = "eks-identifier"
   }
 
 }
