@@ -89,26 +89,6 @@ resource "helm_release" "external-dns" {
     value = "service"
   }
 
-  set {
-    name  = "extraArgs.source"
-    value = "ingress"
-  }
-
-  set {
-    name  = "extraArgs.provider"
-    value = "aws"
-  }
-
-  set {
-    name  = "extraArgs.policy"
-    value = "upsert-only"
-  }
-  
-
-  set {
-    name  = "extraArgs.registry"
-    value = "txt"
-  } 
  
   set {
     name  = "extraArgs.txt-owner-id"
