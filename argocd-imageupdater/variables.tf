@@ -3,10 +3,6 @@ variable "env" {
   type        = string
 }
 
-variable "secret-name" {
-  description = "Private Docker Registry Access Toekn"
-  type        = string
-}
 
 variable "eks_name" {
   description = "Name of the cluster."
@@ -29,12 +25,4 @@ variable "openid_provider_arn" {
   type        = string
 }
 
-variable "aws_ssm_key_name" {
-  description = "Name of the aws ssm key parameter already created to store git repo key."
-  type        = string
-}
 
-variable "private_git_repo" {
-  description = "Name of the private git repo."
-  type        = string
-}

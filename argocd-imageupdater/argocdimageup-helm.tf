@@ -12,7 +12,7 @@ resource "helm_release" "argocd-imageup" {
   timeout          = "1200"
   force_update	   = true
   
-  values = [file("values/image-updater.yaml")] 
+  values = [file("image-updater.yaml")] 
 
 #  set {
 #    name  = "server.service.annotations[0]"
