@@ -907,7 +907,7 @@ grafana:
     - ${env}-grafana.themulticlouding.com
 
     ## Path for grafana ingress
-    path: "/grafana"
+    path: "/"
 
     ## TLS configuration for grafana Ingress
     ## Secret must be manually created in the namespace
@@ -1008,7 +1008,6 @@ grafana:
   ##
   service:
     portName: http-web
-    port: 443
 
   serviceMonitor:
     # If true, a ServiceMonitor CRD is created for a prometheus operator
