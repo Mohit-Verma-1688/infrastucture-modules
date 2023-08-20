@@ -9,7 +9,7 @@ variable "eks_name" {
 }
 
 variable "enable_cert-manager-issuers" {
-  description = "Determines whether to deploy cert-manager-issuers application"
+  description = "Determines whether to deploy cert-manager-issuers application or not"
   type        = bool
   default     = false
 }
