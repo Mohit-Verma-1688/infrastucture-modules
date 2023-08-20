@@ -74,6 +74,10 @@ resource "helm_release" "external-dns" {
   namespace  = "kube-system"
   version    = var.external-dns_helm_version
 
+  set {
+    name  = "aws.zoneType"
+    value = public
+  }
 
   set {
     name  = "serviceAccount.annotations.eks\\.amazonaws\\.com/role-arn"
@@ -100,10 +104,6 @@ resource "helm_release" "external-dns" {
     value = "upsert-only"
   }
   
-  set {
-    name  = "extraArgs.aws-zone-type"
-    value = "public"
-  }
 
   set {
     name  = "extraArgs.registry"
