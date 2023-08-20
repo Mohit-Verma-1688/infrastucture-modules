@@ -22,5 +22,4 @@ variable "external-dns_helm_version" {
 variable "openid_provider_arn" {
   description = "IAM Openid Connect Provider ARN"
   type        = string
-  default     = arn:aws:iam::123456789012:oidc-provider
 }
