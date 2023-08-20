@@ -10,7 +10,7 @@ data "aws_iam_policy_document" "external-dns" {
     condition {
       test     = "StringEquals"
       variable = "${replace(data.aws_iam_openid_connect_provider.this.url, "https://", "")}:sub"
-      values   = ["system:serviceaccount:kube-system:external-dns"]
+      values   = ["system:serviceaccount:kube-system:${var.env}-external-dns"]
     }
 
     principals {

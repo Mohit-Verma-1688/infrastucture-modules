@@ -10,7 +10,7 @@ data "aws_iam_policy_document" "cert-manager" {
     condition {
       test     = "StringEquals"
       variable = "${replace(data.aws_iam_openid_connect_provider.this.url, "https://", "")}:sub"
-      values   = ["system:serviceaccount:kube-system:cert-manager"]
+      values   = ["system:serviceaccount:kube-system:${var.env}-cert-manager"]
     }
 
     principals {
