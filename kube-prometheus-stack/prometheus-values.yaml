@@ -893,8 +893,6 @@ grafana:
     ##
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-${env}
-      nginx.ingress.kubernetes.io/backend-protocol: HTTPS
-      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
 
     ## Labels to be added to the Ingress
     ##
@@ -2682,9 +2680,7 @@ prometheus:
     ingressClassName: ${env}-external-nginx
 
     annotations:
-      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
       cert-manager.io/cluster-issuer: letsencrypt-${env}
-      nginx.ingress.kubernetes.io/ssl-passthrough: 'true'
     labels: {}
 
     ## Redirect ingress to an additional defined port on the service
