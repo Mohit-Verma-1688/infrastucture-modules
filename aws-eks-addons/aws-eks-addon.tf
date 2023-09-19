@@ -31,7 +31,7 @@ resource "aws_iam_role" "amazon_ebs_csi_driver" {
 resource "aws_iam_role_policy_attachment" "aws-eks-addon" {
   count = var.enable_aws-eks-addon ? 1 : 0
 
-  role       = aws_iam_role.amazon_ebs_csi_driver.name
+  role       = aws_iam_role.amazon_ebs_csi_driver[0].name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
 }
 
