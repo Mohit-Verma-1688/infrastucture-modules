@@ -19,3 +19,9 @@ variable "kube-prometheus-stack_helm_version" {
   type        = string
 }
 
+variable "enable_defaultdashboard" {
+  description = "This parameter will enable the default dashboard if set to true"
+  type        = string
+}
+
+
