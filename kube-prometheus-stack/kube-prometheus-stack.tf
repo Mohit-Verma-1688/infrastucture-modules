@@ -15,8 +15,8 @@ resource "helm_release" "kube-prometheus-stack" {
   values = [
     templatefile("${path.module}/prometheus-values.yaml", 
     { 
-     env = "${var.env}" 
-     defaultdashboard = "${var.enable_defaultdashboard}  
+     env = "${var.env}",
+     defaultdashboard = "${var.enable_defaultdashboard}" 
     }
   )
  ]
