@@ -13,9 +13,13 @@ resource "helm_release" "kube-prometheus-stack" {
   force_update	   = true
 
   values = [
-    templatefile("${path.module}/prometheus-values.yaml", { env = "${var.env}" , defaultdashboard = "${var.enable_defaultdashboard}  })
-  ]
-
+    templatefile("${path.module}/prometheus-values.yaml", 
+    { 
+     env = "${var.env}" 
+     defaultdashboard = "${var.enable_defaultdashboard}  
+    }
+  )
+ ]
 }
 
 #data "aws_ssm_parameter" "ssh_private_key" {
