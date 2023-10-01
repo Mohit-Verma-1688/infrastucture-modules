@@ -83,6 +83,16 @@ resource "helm_release" "cert-manager" {
     name  = "extraArgs[0]"
     value = "--issuer-ambient-credentials"
   }
+ 
+  set {
+    name  = "prometheus.servicemonitor.enabled"
+    value = "true"
+  }
+
+  set {
+    name  = "prometheus.servicemonitor.labels"
+    value = "prometheus: monitoring"
+  }
 
 
 }
