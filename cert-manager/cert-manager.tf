@@ -94,7 +94,7 @@ resource "helm_release" "cert-manager" {
     type  = "string"
     value = <<-YAML
       prometheus: monitoring
+      YAML
   }
-
 
 }
