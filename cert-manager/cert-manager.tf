@@ -91,7 +91,9 @@ resource "helm_release" "cert-manager" {
 
   set {
     name  = "prometheus.servicemonitor.labels"
-    value = "prometheus: monitoring"
+    type  = "string"
+    value = <<-YAML
+      prometheus: monitoring
   }
 
 
